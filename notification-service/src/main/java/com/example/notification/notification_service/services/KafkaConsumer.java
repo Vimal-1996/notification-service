@@ -9,8 +9,16 @@ import com.example.notification.notification_service.DTO.OrderDTO;
 public class KafkaConsumer {
 	
 	@KafkaListener(topics="order-notification-topic", groupId = "notification-service-group")
-    public void consume(OrderDTO order) {
-        // Logic to notify the user (via email, SMS, etc.)
-        System.out.println("Order placed: " + order.getId() + ", sending notification...");
-    }
+//    public void consume(OrderDTO order) {
+//        // Logic to notify the user (via email, SMS, etc.)
+//        System.out.println("Order placed: " + order.getId() + ", sending notification...");
+//    }
+	
+	public void consume(OrderDTO order) {
+		// Logic to notify the user (via email, SMS, etc.)
+		System.out.println("Order placed: " + order.getCustomerId());
+		System.out.println("Order placed: " + order.getTotalPrice());
+		System.out.println("Order placed: " + order.getId());
+		System.out.println("Order placed: " + order.getStatus());
+	}
 }
